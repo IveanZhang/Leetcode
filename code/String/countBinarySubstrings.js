@@ -15,5 +15,30 @@
 */
 
 export default (str) => {
+	let array = [];
+	const match = (str) =>{
+		const substr = str.match(/^(0+|1+)/)[0];
+		// ^ 1  => number
+		// str.repeat(number)
+		const reverseSubStr = (substr[0] ^ 1).toString().repeat(substr.length);
+		//RegExp 
+		const regex = new RegExp(`^(${substr}${reverseSubStr})`);
+		//   /^s+/.test
+		if(regex.test(str)){
+			//the first match
+			return RegExp.$1;
+		}else{
+			return '';
+		}
+	};
 
+	for(let i = 0; i < str.length - 1 ; i++){
+		//string.slice(index)
+		const substr = match(str.slice(i));
+		if(substr)
+		{
+			array.push(substr);
+		}
+	}
+	return array;
 };
