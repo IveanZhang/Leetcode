@@ -1,5 +1,8 @@
 import letterCombinations from '../../code/Array/letterCombinations'
 
+test('letterCombinations:23', () => {
+  expect(letterCombinations('23')).toEqual(['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf'])
+});
 
 test('letterCombinations:234', () => {
   expect(letterCombinations('234')).toEqual([
